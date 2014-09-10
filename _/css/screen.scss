@@ -1,0 +1,343 @@
+// ::Imports pre-render. Must be after reset
+// ------------------------------------------------------------
+@import "libs/required";
+@import "libs/reset";
+@import "libs/settings";
+@import "libs/mixins";
+@import "libs/placeholders";
+
+// Transformicon Color:
+$navicon-color: $neg;
+
+// Use SASS globbing to import all _.scss files in the module folder.
+// These should be independent modules that follow the BEM/SMACSS way
+@import "modules/*"; 
+
+
+
+/* ::Base styles */
+/* ------------------------------------------------------------ */
+
+html {
+	font-size: 100%;
+	@include break-max(768px, $IE9: false) { // Stop at precise width, as we're talking about devices
+		-webkit-text-size-adjust: 100%;	// Stops text scaling in iOS.
+	}
+}
+
+body {
+	@extend .font-body;
+	background: $primary;
+	background-image: url('../img/blue-wood.png');
+	color: $pos;
+}
+
+html, body {
+	overflow-x: hidden;
+}
+
+a {
+	color: $action;
+	text-decoration: none;
+	@include link-active-styles { 	// Mixin for interactions (hover,focus,active)
+		color: $action-respond;
+	}
+	&:not(>img) {
+		@include force-wrap;
+	}
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+.no-left {
+	padding-left: 0 !important;
+}
+
+.clear {
+	clear: both !important;
+	float: none !important;
+}
+
+.padded {
+	padding: 2%;
+}
+
+.mohide {
+	display: none !important;
+	@include break($d) {
+		display: block !important;
+	}
+} 
+
+.typeset {
+	a {
+		color: $pos;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+		margin-bottom: 15px;
+		@include break($b) {
+			margin: 0 0 15px 30px;
+			float: right;
+			width: 40%;
+		}
+	}
+	.full-width {
+		margin: 0 0 30px 0;
+		clear: both;
+		width: 100%;
+	}
+	.right {
+
+		@include break($b) {
+			float: right;
+			margin: 0 0 15px 30px;
+			width: 40%;
+		}
+	}
+	.left {
+		@include break($b) {
+			float: left;
+			margin: 0 30px 15px 0;
+			width: 40%;
+		}
+	}
+
+	blockquote {
+		@include break($d) {
+			clear: none;
+			color: $neg;
+			float: right;
+		}
+		clear: both;
+		color: $pos;
+		position: relative;
+		margin-bottom: 10px !important;
+		&:before {
+			content: "“ ";
+		}
+		&:after {
+			content: " ”";	
+		}
+	}
+}
+
+.testimony, article {
+	@include clearfix;
+	clear: both;
+	margin-bottom: 15px;
+	padding: 10px 0;
+	@include break($d) {
+		&:nth-of-type(even) {
+			background-color: transparentize($pos, 0.2);
+			box-shadow: 25rem 0 0 0 transparentize($pos, 0.2), -25rem 0 0 0 transparentize($pos, 0.2); 
+		}
+		img {
+			max-width: 30%;
+		}
+	}
+	blockquote {
+		clear: none;
+		float: none;
+	}
+}
+
+.side-photo {
+	margin-bottom: 15px;
+	img {
+		width: 100%;
+		border: $pos 5px double;
+	}
+	p {
+		text-align: center;
+		span {
+			display: block;
+			clear: both;
+			font-weight: lighter;
+		}
+	}
+}
+
+.grey-bg {
+	overflow: hidden;
+	p {
+		color: darken($pos, 10%);
+		margin-bottom: 25px;
+	}
+	
+	img {
+		border: double $pos 5px;
+	}
+
+	@include break($d) {
+		h1, h2 {
+			color: $primary;
+		}
+		background-color: darken($pos, 5%);
+		p {color: $neg;}
+		box-shadow: 25rem 25rem 0 25rem darken($pos, 5%); 
+	}
+	&.padded {
+		@include break($d) {
+			padding: 4%;
+		}	
+	}
+	ul {
+		width: 100%;
+		display: block;
+		clear: both;
+		@include clearfix;
+		li {
+			list-style-type: disc;
+		}
+	}
+	ol, ul {
+		padding-left: 10px;
+		@include break($d) {
+			color: $neg;
+		}
+	}
+	li.features {
+		list-style-type: none;
+		width: 40%;
+		float: left;
+		background-color: $pos;
+		color: $neg;
+		text-align: center;
+		padding: 20px;
+		margin: 10px !important;
+		@include break($d) {
+			width: 30%;
+			background-color: $primary;
+			color: $pos;
+		}
+	}
+
+}
+
+////////////
+// LAYOUT //
+////////////
+
+.row.typeset {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.hero {
+
+}
+
+.typeset ul.acc {
+	margin-left: 0;
+	li {
+		color: $pos;
+		background-color: lighten($secondary, 15%);
+	}
+}
+
+.acc li {
+	list-style-type: none;
+}
+
+.acc li .acc-head {
+	cursor: pointer;
+	position: relative;
+	padding: 20px;
+}
+
+.acc li .acc-head i {
+	position: absolute;
+	top: 22px;
+	right: 15px;
+}
+
+.acc-panel {
+	padding: 0px 20px 10px;
+}
+
+.border-b {
+	//border-bottom: 2px double $neg;
+	padding: 10px 0 25px;
+	margin-bottom: 15px;
+	&:last-of-type {
+		border-bottom-width: 0;
+	}
+	small {
+		margin-bottom: 5px;
+		display: block;
+	}
+}
+
+article {
+	@extend .border-b;
+	clear: both;
+	@include clearfix;
+}
+
+footer {
+	box-shadow: 0 -10px 55px rgba(0,0,0,0.2);
+	border-top: solid $secondary 8px;
+	background-color: $pos;
+	color: $neg;
+	padding: 20px 0;
+	color: #aaa;
+	font-size: 12px;
+	font-weight: lighter;
+	position: relative;
+	z-index: 5;
+	a {
+		text-transform: uppercase;
+		color: #ccc;
+	}
+	small {
+		float: right;
+	}
+}
+
+#new {
+	position: relative;
+	small {
+		color: transparentize($pos, 0.5);
+		position: absolute;
+		top: 15px;
+		right: 10px;
+		float: right;
+	}
+}
+
+/* ::Import styles */
+/* ------------------------------------------------------------ */
+
+@import "libs/typography"; 					// Base level typography
+@import "libs/forms";						// Forms
+@import "add-ons/module-typeset"; 			// Specific typesetting
+@import "add-ons/grid"; 					// Grid system
+
+
+/* ::Print */
+/* ------------------------------------------------------------ */
+
+@media print {
+	body {
+		@include adjust-leading-to(2);
+		font-size: percentage(10 / 16);
+	}
+}

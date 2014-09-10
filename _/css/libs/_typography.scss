@@ -1,0 +1,24 @@
+// ------------------------------------------------------------
+// Global typography
+// ------------------------------------------------------------
+
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,700,800);
+
+// ------------------------------------------------------------
+// Fonts
+// ------------------------------------------------------------
+
+.font-body 					{  font-family: 'Merriweather Sans', sans-serif; }
+.sans 					{  font-family: Helvetica, Arial, sans-serif; }
+
+
+// ------------------------------------------------------------
+// Core typography
+// ------------------------------------------------------------
+
+p, span, cite, ol, ul, pre, label, input, textarea 	{ @include adjust-font-size-to($para); }
+ul 													{ @include nobullet; } 						
+ol 													{ @include nobullet; }	
+li 													{ line-height: inherit; }					
+strong, b 											{ font-weight: 700; }
+em, i, q 											{ font-style: italic; }
