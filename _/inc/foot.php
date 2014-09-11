@@ -19,7 +19,7 @@
 		var elem = document.getElementById('slider');
 		
 		window.mySwipe = Swipe(elem, {
-		  	auto: 10000,
+		  	auto: 3500,
 		});
 </script>
 <script type="text/javascript">

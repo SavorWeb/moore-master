@@ -4,15 +4,12 @@
 	<div id="photo-left" class="colspan12-3 colspan6-2 padded colspan2-2 as-grid editable">
 		<div class="side-photo repeatable">
 			<img alt="photo" id="photo1" src="media/photos/grohe-tub.jpg" alt="">
-			<p>caption</p>
 		</div>
 		<div class="side-photo repeatable">
 			<img alt="photo" id="photo2" src="media/photos/moen-shower.jpg" alt="">
-			<p>caption</p>
 		</div>
 		<div class="side-photo repeatable">
 			<img alt="photo" id="photo3" src="media/photos/grohe-faucet.jpg" alt="">
-			<p>caption</p>
 		</div>
 	</div>
 	<div id="contact" class="colspan12-9 colspan6-4 colspan2-2 as-grid padded typeset grey-bg">
