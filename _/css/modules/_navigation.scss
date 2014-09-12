@@ -17,13 +17,13 @@
 		max-width: 50%;
 		margin-top: 8px;
 		img {
-			width: 100%;
+			max-width: 100%;
 		}
 		@include break($d) {
 			width: 20%;
 			margin: 9px 0 0;
 			img {
-				max-width: 300px;
+				max-width: 360px;
 			}
 		}
 	}

@@ -92,14 +92,14 @@ textarea {
   margin-top: 8px;
 }
 .pagehead .logo img {
-  width: 100%;
+  max-width: 100%;
 }
 .lt-ie9 .pagehead .logo {
   width: 20%;
   margin: 9px 0 0;
 }
 .lt-ie9 .pagehead .logo img {
-  max-width: 300px;
+  max-width: 360px;
 }
 @media screen and (min-width: 900px) {
   .pagehead .logo {
